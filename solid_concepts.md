@@ -34,3 +34,11 @@
 - Em tais casos, escrever classes separadas;
 
 ## ISP - Interface Segregation Principle
+- Clientes (classes) não devem ser forçados a depender de métodos que não usam;
+- Muitas interfaces específicas são melhores do que uma interface única;
+- Uma interface que serve para duas classes diferentes, porém uma das classes não possui o método requerido pela interface. Isso é ruim pois força o dev a implementar um método que a classe não precisa. Solução é criar interfaces diferentes;
+
+## DIP - Dependency Inversion Principle
+- Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações;
+- Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações;
+- Solução é criar interfaces para comunicação entre módulos;
