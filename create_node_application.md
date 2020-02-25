@@ -49,3 +49,13 @@
 - If everything goes well, return a user object with desired data and a second object called token, use jsonwebtoken.sign() method
 
 > Auth middleware
+
+- Inside /app folder create middlewares folder
+- import jsonwebtoken, promisify from util and authConfig from your config file
+- export a async arrow function (req, res, next)
+- Need to check if req.headers.authorization exists
+- Get token from it by split(' '), remember it is a bearer token
+- Inside a try/catch block, validate token by calling await promisify(jwt.verify)(token, authConfig.secret)
+- Optionally you can add the logged in ID inside the request object to further use
+- return next(); if everything goes well, so the application can continue to the subsequent route
+- Inside your routes.js file, import authMiddleware and use it before all routes that requires an authenticated user
