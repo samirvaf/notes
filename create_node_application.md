@@ -35,3 +35,17 @@
 - Created class should extend sequelize Model
 - Follow sequelize documentation to finish model file
 - Import and initialize model inside database/index.js
+
+> Auth feature
+
+- Create .env parameter APP_SECRET used to hash the passwords
+- Create inside /config folder a file auth.js
+- exports secret and expiresIn
+- Inside User model create a addHook('beforeSave') to hash the password using bcryptjs also create a method to checkPassword
+- Create a session controller, import jsonwebtoken and Yup to validate request data
+- Start by creating a Yup object to check if request has email and password
+- Search in the database for the User with a corresponding email
+- Finally call checkPassword method to validate the user
+- If everything goes well, return a user object with desired data and a second object called token, use jsonwebtoken.sign() method
+
+> Auth middleware
