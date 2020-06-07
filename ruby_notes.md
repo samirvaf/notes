@@ -30,3 +30,11 @@ Podemos criar métodos que tratam cenários em que precisamos que algo execute a
 - O método deve receber um code block, executar algo antes do yield e executar algo após o yield
 - É possível tratar exceptions de forma generalista
 - Podemos usar execute around para inicializar objetos de forma mais legível (pesquisar)
+
+## Chapter 19 - Save blocks to execute later
+> Como utilizar code blocks para executar pedaços de código no momento certo
+
+Podemos criar metódos que recebem code blocks para inicializar determinados parâmetros, criar listeners.
+- Code blocks com parâmetros explícitos devem ser utilizados
+- Lembrar da diferença entre o uso de lambda e Proc.new (pesquisar)
+- Tomar cuidado com o escopo em torno do code block já que ele suga todas as variáveis enquanto estiver ativo, lembrar do exemplo de um array com muitos elementos
