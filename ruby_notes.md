@@ -22,3 +22,11 @@ Podemos usar code blocks para:
 - **Não confundir com Enumerator** que possui outras utilidades como .count e .sort
 - Ao criar iterators sempre considerar que não possuimos controle sob o que é passado no code block, ou seja, não confiar demais
 - Para casos críticos que não se pode prever se uma exception pode ocorrer durante a iteração utilizar **begin/ensure**
+
+## Chapter 18 - Execute around a block
+> O que é a técnica execute around?
+
+Podemos criar métodos que tratam cenários em que precisamos que algo execute antes e/ou depois da lógica do método em si. Bons exemplos são loggings.
+- O método deve receber um code block, executar algo antes do yield e executar algo após o yield
+- É possível tratar exceptions de forma generalista
+- Podemos usar execute around para inicializar objetos de forma mais legível (pesquisar)
