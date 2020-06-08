@@ -38,3 +38,13 @@ Podemos criar metódos que recebem code blocks para inicializar determinados par
 - Code blocks com parâmetros explícitos devem ser utilizados
 - Lembrar da diferença entre o uso de lambda e Proc.new (pesquisar)
 - Tomar cuidado com o escopo em torno do code block já que ele suga todas as variáveis enquanto estiver ativo, lembrar do exemplo de um array com muitos elementos
+
+## Chapter 20 - Hooks
+> Como utilizar hooks para manter seu programa informado
+
+Podemos criar hooks para capturar informação sobre o nosso programa que pode ser muito útil para tratar casos específicos
+- self.inherited(subclass) é disparado sempre que a classe em que a hook é definida é herdada, muito útil para manter uma lista de subclasses e utilizar isso para chamar um método em comum a todas as subclasses, cada uma com uma implementação diferente. Exemplo um reader de documentos em que cada subclasse é capaz de ler uma extensão diferente
+- self.included(host_class) é a versão para módulos, o principal uso dessa hook é quando queremos adicionar instance methods **e** class methods a uma determinada classe sem precisar criar dois módulos diferentes e chamar include e extend
+- at_exit é um hook chamado logo antes do programa encerrar, ele recebe um bloco de código e o executa. Podemos definir vários 'at_exit', porém é importante lembrar que é executado na ordem 'last-in/first-out'
+- Para utilizar hooks de forma efetiva precisamos saber **examente quando eles são chamados**
+- Existem vários hooks, esses são apenas alguns exemplos dos mais usados, pode ser interessante pesquisar
