@@ -48,3 +48,12 @@ Podemos criar hooks para capturar informação sobre o nosso programa que pode s
 - at_exit é um hook chamado logo antes do programa encerrar, ele recebe um bloco de código e o executa. Podemos definir vários 'at_exit', porém é importante lembrar que é executado na ordem 'last-in/first-out'
 - Para utilizar hooks de forma efetiva precisamos saber **examente quando eles são chamados**
 - Existem vários hooks, esses são apenas alguns exemplos dos mais usados, pode ser interessante pesquisar
+
+## Chapter 21 - method_missing and const_missing
+> Como Ruby pode lidar com métodos ou constantes que não existem no código
+
+Podemos sobreescrever os métodos const_missing e method_missing para personalizar as mensagens de erro quando o programa não encontra determinado método ou constante
+- method_missing é chamado sempre que o user tenta executar um método que não é encontrado na classe, a exception NameError por exemplo é implementada pelo method_missing da classe Object
+- É possível criar mensagens de erro personalizadas, até utilizar a gema text para sugerir de fato qual o método que o user tinha intenção de chamar, assumindo que ele tenha digitado algo errado
+- const_missing é semelhante, é chamado sempre que uma constante não é encontrada
+- É possível utilizar o const_missing para carregar arquivos/código automaticamente (pesquisar)
