@@ -57,3 +57,15 @@ Podemos sobreescrever os métodos const_missing e method_missing para personaliz
 - É possível criar mensagens de erro personalizadas, até utilizar a gema text para sugerir de fato qual o método que o user tinha intenção de chamar, assumindo que ele tenha digitado algo errado
 - const_missing é semelhante, é chamado sempre que uma constante não é encontrada
 - É possível utilizar o const_missing para carregar arquivos/código automaticamente (pesquisar)
+
+## Chapter 22 - method_missing to delegate
+> Como utilizar method_missing para delegar?
+
+Podemos utilizar o method_missing para delegar tarefas a outros objetos com muita facilidade, definimos uma classe que seria uma espécie de wrapper
+- No construtor fazemos referência ao objeto de outra classe
+- Definimos os métodos que o wrapper dever ter, exemplo uma validação de 5 segundos para invalidar um documento
+- Ao chamar algum method da classe wrapper que deveria ser delegado para o objeto da outra classe, automaticamente o method_missing é executado
+- Sobreescrevemos o method_missing para usar as validações da classe wrapper
+- Usamos o objeto da outra classe chamando .send(name, *args) que são parametros recebidos pelo method_missing
+- Ficar atento aos métodos básicos da classe Object, se necessário, fazer a classe wrapper herdar de BasicObject
+- É possível ainda controlar quais métodos devem ou não ser delegados, definindo uma constante com os nomes dos methods como symbols na classe wrapper e fazendo um if simples dentro de method_missing
