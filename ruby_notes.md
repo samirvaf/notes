@@ -69,3 +69,11 @@ Podemos utilizar o method_missing para delegar tarefas a outros objetos com muit
 - Usamos o objeto da outra classe chamando .send(name, *args) que são parametros recebidos pelo method_missing
 - Ficar atento aos métodos básicos da classe Object, se necessário, fazer a classe wrapper herdar de BasicObject
 - É possível ainda controlar quais métodos devem ou não ser delegados, definindo uma constante com os nomes dos methods como symbols na classe wrapper e fazendo um if simples dentro de method_missing
+
+## Chapter 23 - method_missing to create flexible API's
+> Como utilizar o method_missing para criar magic methods
+
+Podemos utilizar o method_missing para criar funcionalidades que não existem de fato no código, mas que executam algo
+- A ideia é parsear a chamada do método e decidir o que fazer a partir daí
+- São chamados de magic methods porque são métodos virtuais que não existem no código, mas existem ao serem chamados
+- Um exemplo é uma classe que permite replace_algo, dentro de method_missing validamos que a chamada do método inclui 'replace_', extraimos o 'algo' e fazemos um gsub desse algo com o que foi recebido como parâmetro
