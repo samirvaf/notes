@@ -77,3 +77,14 @@ Podemos utilizar o method_missing para criar funcionalidades que não existem de
 - A ideia é parsear a chamada do método e decidir o que fazer a partir daí
 - São chamados de magic methods porque são métodos virtuais que não existem no código, mas existem ao serem chamados
 - Um exemplo é uma classe que permite replace_algo, dentro de method_missing validamos que a chamada do método inclui 'replace_', extraimos o 'algo' e fazemos um gsub desse algo com o que foi recebido como parâmetro
+
+
+## Chapter 24 - monkey patching
+> Como modificar suas classes utilizando monkey patching
+
+Classes em Ruby são como variáveis, são completamente abertas e podemos modificá-las de todas as formas possíveis
+- Podemos adicionar novos métodos, sobreescrever o comportamento de algum, tornar público, tornar privado, enfim, podemos fazer literalmente tudo
+- O principal uso dessa técnica é para fixar classes que estão quebradas ou possuem métodos quebrados
+- Podemos utilizar o alias_method para copiar o comportamento antigo de um method antes de modificá-lo, fazemos a adição necessária e simplesmente utilizamos a referência do alias para completar a alteração
+- Podemos remover métodos com o remove_method
+- Utilizar com cautela e sempre escrever testes para validar as alterações
