@@ -35,3 +35,9 @@
 - O arquiteto deve criar um mecanismo configurável, uma espécie de mapping que deve lidar com casos especiais de forma invisível e centralizada.
 - O LSP pode, e deve, ser estendido ao nível da arquitetura. Uma simples violação da capacidade de substituição pode contaminar a arquitetura do sistema com uma quantidade significante de mecanismos extras.
 
+## Capítulo 11 - DIP: O princípio da inversão de dependência
+
+- Dependência de código fonte deve sempre se referir a uma implementação abstrata e não concreta.
+- Lembrar de separar os componentes em abstratos e concretos e ao traçar o fluxo de informação, os concretos devem sempre apontar para os abstratos.
+- A classe Main quase sempre violará o DIP, é normal, também ignoramos dependências de módulos estáveis da linguagem como a classe String por exemplo.
+- Arquiteturas de software estáveis são aquelas que evitam depender de implementações concretas, e que favorecem o uso de interfaces abstratas estáveis.
